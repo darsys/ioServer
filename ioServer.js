@@ -1,4 +1,4 @@
-const ioServer = require('../ioServer')
+const ioServer = require('./gpio/gpioServer')
 var express = require('express')
 var app = express()
 var port = process.env.PORT || 3000
@@ -11,10 +11,10 @@ app.use(function timeLog (req, res, next) {
   next()
 })
 
-const index = require('../gpio/index')
+const index = require('./gpio/index')
 app.use('/', index)
 
-const routes = require('./routes/gpioRoutes')
+const routes = require('./gpio/gpioRoutes')
 app.use('/gpio', routes)
 
 app.listen(port)

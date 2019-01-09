@@ -1,4 +1,4 @@
-const Gpio = require('pigpio').Gpio
+const ioS = require('./gpioServer')
 
 exports.server_info = function(req, res, next) {
     var myError = false;
@@ -7,19 +7,17 @@ exports.server_info = function(req, res, next) {
       error.httpStatusCode = 400
       return next(error)
     }
-    const ioS = req.app.get('ioServer')
-    res.json(ioS.getInfo());
+    res.json(ioS.systemInfo());
   }
 
   exports.list_all_gpios = function(req, res, next) {
-    const ioS = req.app.get('ioServer')
     var myError = false;
     if (myError) {
       const error = new Error('Error getting all gpios')
       error.httpStatusCode = 400
       return next(error)
     }
-    res.json(ioS.listGPIO());
+    res.json(ioS.pinList());
   }
 
   exports.read_a_gpio = function(req, res, next) {
@@ -29,8 +27,7 @@ exports.server_info = function(req, res, next) {
     error.httpStatusCode = 400
     return next(error)
   }
-  const ioS = req.app.get('ioServer')
-  res.json(ioS.getGPIO(gpioID))
+  res.json(ioS.pinInfo(gpioID))
  }
   
  exports.update_a_gpio = function(req, res, next) {
@@ -41,6 +38,5 @@ exports.server_info = function(req, res, next) {
     error.httpStatusCode = 400
     return next(error)
   }
-  const ioS = req.app.get('ioServer')
-  res.json(ioS.setGPIO(gpioID, state))
+  res.json(ioS.setPin(gpioID, state))
 }

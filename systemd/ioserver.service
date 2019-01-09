@@ -1,0 +1,15 @@
+[Unit]
+Description=ioServer - Network GPIO access service
+After=network.target
+
+[Service]
+
+ExecStart=/usr/bin/npm start
+WorkingDirectory=/home/pi/ioServer
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
