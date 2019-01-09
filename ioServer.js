@@ -11,7 +11,7 @@ app.use(function timeLog (req, res, next) {
   next()
 })
 
-const index = require('./routes/index')
+const index = require('../gpio/index')
 app.use('/', index)
 
 const routes = require('./routes/gpioRoutes')
