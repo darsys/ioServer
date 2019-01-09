@@ -11,7 +11,7 @@ Current functionality:
 
 ## Getting Started
 
-Project only be should used with caution as it is alpha and in development. If you can't figure it out you probably should not use it yet.
+Project should only be should used with caution as it is alpha and in development. If you can't figure it out you probably should not use it yet.
 
 ## Built With
 
