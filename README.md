@@ -5,7 +5,7 @@ GPIO are accessed using a rest api (based on express) that leverages pigpio to i
 
 ## Getting Started
 
-Project should be downloadable and npm should install the reqs.
+Project should used with caution as it is alpha and in development. If you can't figure it out you probably should not use it yet.
 
 ## Built With
 
