@@ -1,0 +1,29 @@
+{
+  "gpios": [
+    {
+      "id": 1,
+      "name": "GPIO0"
+    },
+    {
+      "id": 2,
+      "name": "GPIO1"
+    }
+  ],
+  "functions": [
+    {
+      "id": 1,
+      "name": "OnOff",
+      "modelId": 2
+    },
+    {
+      "id": 2,
+      "name": "PWM",
+      "modelId": 3
+    },
+    {
+      "id": 3,
+      "name": "PULSE",
+      "modelId": 4
+    }
+  ]
+}
