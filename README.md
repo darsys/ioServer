@@ -3,6 +3,12 @@
 This is a basic network server for access to the gpio on the raspberry pi. 
 GPIO are accessed using a rest api (based on express) that leverages pigpio to interact with the hardware
 
+Current functionality:
+List all pin states: http://myservername/gpio gets mode, state and init status from all pins
+Get Pin State: http://myservername/gpio/15 gets mode, state and init status from pin 15
+Set Pin Output State: http://myservername/gpio/12/1 sets pin 12 to ON
+Get ioServer info: http://myservername/gpio/info gets mode, state and init status from all pins
+
 ## Getting Started
 
 Project only be should used with caution as it is alpha and in development. If you can't figure it out you probably should not use it yet.
