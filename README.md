@@ -5,7 +5,7 @@ GPIO are accessed using a rest api (based on express) that leverages pigpio to i
 
 ## Getting Started
 
-Project should used with caution as it is alpha and in development. If you can't figure it out you probably should not use it yet.
+Project only be should used with caution as it is alpha and in development. If you can't figure it out you probably should not use it yet.
 
 ## Built With
 
