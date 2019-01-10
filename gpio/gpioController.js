@@ -40,3 +40,15 @@ exports.server_info = function(req, res, next) {
   }
   res.json(ioS.setPin(gpioID, state))
 }
+
+exports.gpioPulse = function(req, res, next) {
+  const gpioID = req.params.id
+  const state = req.params.state
+  const duration = req.params.duration
+  if (!gpioID) {
+    const error = new Error('Missing GPIO ID')
+    error.httpStatusCode = 400
+    return next(error)
+  }
+  res.json(ioS.setPulse(gpioID, state, duration))
+}

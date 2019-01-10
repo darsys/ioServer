@@ -3,7 +3,7 @@ const Gpio = pigpio.Gpio;
 
 //define default pin settings 
 const default_mode = Gpio.OUTPUT
-const default_pullUpDown = Gpio.PUD_OFF
+const default_pullUpDown = Gpio.PUD_ON
 const default_edge = Gpio.EITHER_EDGE
 const default_timeout = 0
 const default_alert = false
@@ -60,7 +60,19 @@ class gpioHandler {
     setPin(pin,state) {
         if (!(pin in this.gpios)) this.initPin(pin)
         this.gpios[pin].digitalWrite(state)
+        console.log('set pin ' + pin + " to " + state)
         return this.pinInfo(pin)
+    }
+
+    setPulse(pin,state,duration) {
+        if (!(pin in this.gpios)) this.initPin(pin)
+        var thePin = this.gpios[pin]
+        thePin.digitalWrite(state)
+        console.log('set pin ' + pin + " to " + state + ' for ' + duration)
+        setTimeout(function(){
+            thePin.digitalWrite(!state)
+            console.log('set pin ' + pin + " to " + !state)
+          }, duration)
     }
 }
 
