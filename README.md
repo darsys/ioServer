@@ -6,7 +6,8 @@ GPIO are accessed using a rest api (based on express) that leverages pigpio to i
 Current functionality:
 * List all pin states: http://myservername/gpio gets mode, state and init status from all pins
 * Get Pin State: http://myservername/gpio/15 gets mode, state and init status from pin 15
-* Set Pin Output State: http://myservername/gpio/12/1 sets pin 12 to ON
+* Set Pin Output State: 
+    http://myservername/gpio/12/1 sets pin 12 to ON
 * Pulse Pin to a State for a Duration: http://myservername/gpio/6/1/1500 sets pin 6 ON for 1500ms then OFF
 * Get ioServer info: http://myservername/gpio/info gets mode, state and init status from all pins
 
