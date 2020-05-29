@@ -46,6 +46,7 @@ class gpioHandler {
 
     pinInfo(pin) {
         var p, init
+        console.log('get pin info ' + pin)
         if (pin in this.gpios) {
             p = this.gpios[pin]
             init = true
@@ -70,9 +71,16 @@ class gpioHandler {
         thePin.digitalWrite(state)
         console.log('set pin ' + pin + " to " + state + ' for ' + duration)
         setTimeout(function(){
-            thePin.digitalWrite(!state)
-            console.log('set pin ' + pin + " to " + !state)
+            thePin.digitalWrite(1-state)
+            console.log('set pin ' + pin + " to " + (1-state))
           }, duration)
+    }
+    
+    setPWM(pin,dutyCycle,frequency=0) {
+        if (!(pin in this.gpios)) this.initPin(pin)
+        var thePin = this.gpios[pin]
+        thePin.pwmWrite(dutyCycle)
+        console.debug('set pin ' + pin + " to pwm with duty cycle " + dutyCycle)
     }
 }
 
