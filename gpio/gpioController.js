@@ -21,23 +21,31 @@ exports.server_info = function(req, res, next) {
   }
 
   exports.read_a_gpio = function(req, res, next) {
-  const gpioID = req.params.id
+  var gpioID = req.params.id
   if (!gpioID) {
-    const error = new Error('Missing GPIO ID')
-    error.httpStatusCode = 400
-    return next(error)
+    console.log('Setting pin json body values.')
+    gpioID = req.body.pin
+    if (!gpioID) {
+      const error = new Error('Missing GPIO ID')
+      error.httpStatusCode = 400
+      return next(error)
+    }
   }
   res.json(ioS.pinInfo(gpioID))
 }
   
 exports.update_a_gpio = function(req, res, next) {
   console.log(req.body)
-  const gpioID = req.params.gpio
+  var gpioID = req.params.gpio
   var state = req.params.state
   if (!gpioID) {
-    const error = new Error('Missing GPIO ID')
-    error.httpStatusCode = 400
-    return next(error)
+    console.log('Setting pin json body values.')
+    gpioID = req.body.pin
+    if (!gpioID) {
+      const error = new Error('Missing GPIO ID')
+      error.httpStatusCode = 400
+      return next(error)
+    }
   }
   if (!state) {
     console.log('Setting state to json body state value.')
@@ -52,13 +60,17 @@ exports.update_a_gpio = function(req, res, next) {
 }
 
 exports.gpioPulse = function(req, res, next) {
-  const gpioID = req.params.gpio
+  var gpioID = req.params.gpio
   var state = req.params.state
   var duration = req.params.duration
   if (!gpioID) {
-    const error = new Error('Missing GPIO ID')
-    error.httpStatusCode = 400
-    return next(error)
+    console.log('Setting pin json body values.')
+    gpioID = req.body.pin
+    if (!gpioID) {
+      const error = new Error('Missing GPIO ID')
+      error.httpStatusCode = 400
+      return next(error)
+    }
   }
   if (!state) {
     console.log('Setting state and duration to json body values.')
@@ -74,11 +86,11 @@ exports.gpioPulse = function(req, res, next) {
 }
 
 exports.gpioPWM = function(req, res, next) {
-  const gpioID = req.params.gpio
+  var gpioID = req.params.gpio
   var dutycycle = req.params.dutycycle
   if (!gpioID) {
-    console.debug('Setting pin to json body values.')
-    gpioID = req.body.gpio
+    console.log('Setting pin json body values.')
+    gpioID = req.body.pin
     if (!gpioID) {
       const error = new Error('Missing GPIO ID')
       error.httpStatusCode = 400
@@ -89,7 +101,7 @@ exports.gpioPWM = function(req, res, next) {
     console.debug('Setting dutycycle to json body values.')
     dutycycle = req.body.dutycycle
   }
-  if (dutycycle < 0 || dutycycle > 255) {
+  if (!dutycycle || dutycycle < 0 || dutycycle > 255) {
     const error = new Error('Duty cycle is not valid.')
     error.httpStatusCode = 400
     return next(error)
