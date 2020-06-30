@@ -22,7 +22,7 @@ Project should only be should used with caution as it is alpha and in developmen
 * [express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/darsys/ioServer/Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
