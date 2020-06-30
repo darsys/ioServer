@@ -17,12 +17,12 @@ Project should only be should used with caution as it is alpha and in developmen
 
 ## Built With
 
-* [pigpio](https://github.com/fivdi/pigpio) - Fast GPIO, PWM, servo control, state change notification and interrupt handling with Node.js on the Raspberry Pi 
-* [express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
-
+* [pigpio](https://github.com/joan2937/pigpio) - pigpio is a C library for the Raspberry which allows control of the General Purpose Input Outputs (GPIO).
+* [pigpio node wrapper](https://github.com/fivdi/pigpio) - A wrapper for the pigpio C library to enable fast GPIO, PWM, servo control, state change notification and interrupt handling with Node.js on the Raspberry Pi Zero, 1, 2, 3 or 4.
+* [express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/darsys/ioServer/Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
