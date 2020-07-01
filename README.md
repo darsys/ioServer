@@ -30,21 +30,27 @@ Current functionality:
 On rasbian (basically debian) here are the basics to install and run the service
 
 pigpio needs to installed and running locally for the service to work (see here)
+
     sudo apt-get update
     sudo apt-get install pigpio
 
-Clone or download the repo, npm install and npm start.
+Clone or download the repo, npm install and npm start
+
     git clone https://github.com/darsys/ioServer.git
     cd ioserver
     sudo npm install
     sudo npm start
 
-The server should be running the local addresses port 3000 and the output should be on the console.
+The server should be running the local addresses port 3000 and the output should be on the console
+
     wget https://localhost:3000/gpio/info
 
-For systemd (I use debian) I have included a systemd service file in the systemd folder. I just symlink this into the /etc/systemd/system folder 
+For systemd (I use debian) I have included a systemd service file in the systemd folder. I just symlink this into the /etc/systemd/system folder
+
     ln repo_download_location/systemd/ioserver.service /etc/systemd/system/ioserver.service
-Then enable and start the service 
+
+Then enable and start the service
+
     sudo systemctl enable ioserver
     sudo systemctl start ioserver
 
