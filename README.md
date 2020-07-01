@@ -4,21 +4,25 @@ This project was developed to create a rest API for controlling the GPIO on a ra
 GPIO are accessed using express (with routing) for a simple web server that locally calls pigpio to interact with the pi gpio hardware
 
 Current functionality:
-* Get ioServer info: http://myservername/gpio/info gets software version information
-* List all pin states: get http://myservername/gpio lists the mode, state and init status from all pins
-* Get digital pin state: get http://myservername/gpio/digital/15 gets mode, state and init status from pin 15
-* Set a *pin* to a digital output *state*: 
-    put http://myservername/gpio/digital/12/1 sets pin 12 to ON
-    put http://myservername/gpio/digital/12 with json paylod {state: 0} sets pin 12 to OFF
-    put http://myservername/gpio/digital/ with json paylod {pin: 12, state: 1} sets pin 12 to ON
-* Pulse a *pin* to a *state* for a *duration* in milliseconds: 
-    put http://myservername/gpio/pulse/12/1/100 sets pin 12 to ON for 100 ms then to OFF
-    put http://myservername/gpio/pulse/12/0 with json paylod {duration: 200} sets pin 12 to OFF for 200 ms then ON
-    put http://myservername/gpio/pulse/12 with json paylod {state: 1, duration: 150} sets pin 12 to ON for 150 ms then OFF
+* Get ioServer info:
+    - get http://myservername/gpio/ gets software version information
+    - get http://myservername/gpio/info gets software version information
+* Get all pin states:
+    - get http://myservername/gpio lists the mode, state and init status from all pins
+* Get digital pin state:
+    - get http://myservername/gpio/digital/15 gets mode, state and init status from pin 15
+* Set a *pin* to a digital output *state*:
+    - put http://myservername/gpio/digital/12/1 sets pin 12 to ON
+    - put http://myservername/gpio/digital/12 with json paylod {state: 0} sets pin 12 to OFF
+    - put http://myservername/gpio/digital/ with json paylod {pin: 12, state: 1} sets pin 12 to ON
+* Pulse a *pin* to a *state* for a *duration* in milliseconds:
+    - put http://myservername/gpio/pulse/12/1/100 sets pin 12 to ON for 100 ms then to OFF
+    - put http://myservername/gpio/pulse/12/0 with json paylod {duration: 200} sets pin 12 to OFF for 200 ms then ON
+    - put http://myservername/gpio/pulse/12 with json paylod {state: 1, duration: 150} sets pin 12 to ON for 150 ms then OFF
 * Set a *pin* to output pwm *dutycycle* (0-255):
-    put http://myservername/gpio/pwm/6/127 starts a pwm output on pin 6 with a ~50% duty cycle
-    put http://myservername/gpio/pwm/6 with json paylod {dutycycle: 64} starts a pwm output on pin 6 with a ~25% duty cycle
-    put http://myservername/gpio/pwm with json paylod {pin: 6, dutycycle: 230} starts a pwm output on pin 6 with a ~90% duty cycle
+    - put http://myservername/gpio/pwm/6/127 starts a pwm output on pin 6 with a ~50% duty cycle
+    - put http://myservername/gpio/pwm/6 with json paylod {dutycycle: 64} starts a pwm output on pin 6 with a ~25% duty cycle
+    - put http://myservername/gpio/pwm with json paylod {pin: 6, dutycycle: 230} starts a pwm output on pin 6 with a ~90% duty cycle
 
 
 ## Getting Started
