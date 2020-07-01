@@ -52,7 +52,7 @@ class gpioHandler {
             init = true
         }
         else {
-            p =new Gpio(pin)
+            p = new Gpio(pin)
             init = false
         }
         return {GPIO: pin, mode: p.getMode(), state: p.digitalRead(), init: init}
@@ -69,10 +69,10 @@ class gpioHandler {
         if (!(pin in this.gpios)) this.initPin(pin)
         var thePin = this.gpios[pin]
         thePin.digitalWrite(state)
-        console.log('set pin ' + pin + " to " + state + ' for ' + duration)
+        console.debug('set pin ' + pin + " to " + state + ' for ' + duration)
         setTimeout(function(){
             thePin.digitalWrite(1-state)
-            console.log('set pin ' + pin + " to " + (1-state))
+            console.debug('set pin ' + pin + " to " + (1-state))
           }, duration)
     }
     

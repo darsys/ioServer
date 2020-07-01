@@ -21,16 +21,12 @@ exports.server_info = function(req, res, next) {
   }
 
   exports.read_a_gpio = function(req, res, next) {
-  var gpioID = req.params.id
+  var gpioID = req.params.gpio
   if (!gpioID) {
-    console.log('Setting pin json body values.')
-    gpioID = req.body.pin
-    if (!gpioID) {
       const error = new Error('Missing GPIO ID')
       error.httpStatusCode = 400
       return next(error)
     }
-  }
   res.json(ioS.pinInfo(gpioID))
 }
   
@@ -73,12 +69,20 @@ exports.gpioPulse = function(req, res, next) {
     }
   }
   if (!state) {
-    console.log('Setting state and duration to json body values.')
+    console.log('Setting state to json body values.')
     state = req.body.state
-    duration = req.body.duration
   }
   if (state != 1 && state != 0) {
     const error = new Error('Missing valid state value')
+    error.httpStatusCode = 400
+    return next(error)
+  }
+  if (!duration) {
+    console.log('Setting duration to json body values.')
+    duration = req.body.duration
+  }
+  if (!duration || duration < 10 || duration >= 900000) {
+    const error = new Error('A valid duration value is required')
     error.httpStatusCode = 400
     return next(error)
   }
