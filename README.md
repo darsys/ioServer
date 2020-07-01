@@ -29,7 +29,7 @@ Current functionality:
 
 On rasbian (basically debian) here are the basics to install and run the service
 
-pigpio needs to installed and running locally for the service to work (see here)
+pigpio needs to installed and running locally for the service to work [see here](http://abyz.me.uk/rpi/pigpio/download.html)
 
     sudo apt-get update
     sudo apt-get install pigpio
